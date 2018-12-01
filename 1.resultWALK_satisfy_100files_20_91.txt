@@ -1,0 +1,348 @@
+Probability: 0.5, MaxFips: 1000
+Avgerage time: 0.10577003002166747
+satisfiable count: 99, unsatisfiable count: 1
+Probability: 0.5, MaxFips: 2000
+Avgerage time: 0.08958866834640503
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 3000
+Avgerage time: 0.11843698740005493
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 4000
+Avgerage time: 0.0760967779159546
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 5000
+Avgerage time: 0.07419764757156372
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 6000
+Avgerage time: 0.09169745922088623
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 7000
+Avgerage time: 0.07274868726730346
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 8000
+Avgerage time: 0.08093360900878906
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 9000
+Avgerage time: 0.09273688793182373
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 10000
+Avgerage time: 0.06768133401870728
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 11000
+Avgerage time: 0.08338261604309082
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 12000
+Avgerage time: 0.07376768350601197
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 13000
+Avgerage time: 0.08244290351867675
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 14000
+Avgerage time: 0.09297693967819214
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 15000
+Avgerage time: 0.06826103210449219
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 16000
+Avgerage time: 0.08708033084869385
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 17000
+Avgerage time: 0.07197889804840088
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 18000
+Avgerage time: 0.08316253423690796
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 19000
+Avgerage time: 0.07353820323944092
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 20000
+Avgerage time: 0.06643210887908936
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 21000
+Avgerage time: 0.07025008440017701
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 22000
+Avgerage time: 0.100362708568573
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 23000
+Avgerage time: 0.08424171686172485
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 24000
+Avgerage time: 0.09301690578460693
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 25000
+Avgerage time: 0.06264441967010498
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 26000
+Avgerage time: 0.0606451964378357
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 27000
+Avgerage time: 0.09349666357040405
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 28000
+Avgerage time: 0.07604658126831054
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.5, MaxFips: 29000
+Avgerage time: 0.08848973035812378
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 1000
+Avgerage time: 0.05417927026748657
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 2000
+Avgerage time: 0.05582811832427979
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 3000
+Avgerage time: 0.0710294485092163
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 4000
+Avgerage time: 0.063723623752594
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 5000
+Avgerage time: 0.05194014310836792
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 6000
+Avgerage time: 0.07100966930389405
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 7000
+Avgerage time: 0.06384334802627563
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 8000
+Avgerage time: 0.05459903001785278
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 9000
+Avgerage time: 0.06720143556594849
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 10000
+Avgerage time: 0.06155505895614624
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 11000
+Avgerage time: 0.07017993927001953
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 12000
+Avgerage time: 0.05251001834869385
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 13000
+Avgerage time: 0.05929595947265625
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 14000
+Avgerage time: 0.07739603996276856
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 15000
+Avgerage time: 0.06468286752700805
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 16000
+Avgerage time: 0.04610368490219116
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 17000
+Avgerage time: 0.06367384433746338
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 18000
+Avgerage time: 0.08116348028182983
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 19000
+Avgerage time: 0.053529627323150634
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 20000
+Avgerage time: 0.07172885894775391
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 21000
+Avgerage time: 0.05605818510055542
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 22000
+Avgerage time: 0.06183470487594604
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 23000
+Avgerage time: 0.06994007110595703
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 24000
+Avgerage time: 0.06680737257003784
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 25000
+Avgerage time: 0.06852094411849975
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 26000
+Avgerage time: 0.06546281337738037
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 27000
+Avgerage time: 0.07840523719787598
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 28000
+Avgerage time: 0.06713169336318969
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.6, MaxFips: 29000
+Avgerage time: 0.06262423038482666
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 1000
+Avgerage time: 0.06196462631225586
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 2000
+Avgerage time: 0.07159892320632935
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 3000
+Avgerage time: 0.06841093301773071
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 4000
+Avgerage time: 0.06779130220413208
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 5000
+Avgerage time: 0.05974589109420776
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 6000
+Avgerage time: 0.054568843841552736
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 7000
+Avgerage time: 0.07210874319076538
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 8000
+Avgerage time: 0.04782270669937134
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 9000
+Avgerage time: 0.05674759864807129
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 10000
+Avgerage time: 0.05752735376358032
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 11000
+Avgerage time: 0.04898203611373901
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 12000
+Avgerage time: 0.06591217041015625
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 13000
+Avgerage time: 0.04286574602127075
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 14000
+Avgerage time: 0.06570229768753051
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 15000
+Avgerage time: 0.05211047172546387
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 16000
+Avgerage time: 0.061874489784240726
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 17000
+Avgerage time: 0.06400346755981445
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 18000
+Avgerage time: 0.05994595766067505
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 19000
+Avgerage time: 0.04910196542739868
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 20000
+Avgerage time: 0.07088934659957885
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 21000
+Avgerage time: 0.06952033042907715
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 22000
+Avgerage time: 0.06991029262542725
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 23000
+Avgerage time: 0.051860368251800536
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 24000
+Avgerage time: 0.061325204372406
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 25000
+Avgerage time: 0.054358787536621093
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 26000
+Avgerage time: 0.06385352849960327
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 27000
+Avgerage time: 0.06696196556091309
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 28000
+Avgerage time: 0.06155468225479126
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.7, MaxFips: 29000
+Avgerage time: 0.06680203914642334
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 1000
+Avgerage time: 0.05973589658737183
+satisfiable count: 99, unsatisfiable count: 1
+Probability: 0.8, MaxFips: 2000
+Avgerage time: 0.06253410339355468
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 3000
+Avgerage time: 0.04997166633605957
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 4000
+Avgerage time: 0.07861493587493897
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 5000
+Avgerage time: 0.0801544213294983
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 6000
+Avgerage time: 0.05877644777297974
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 7000
+Avgerage time: 0.06706153392791749
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 8000
+Avgerage time: 0.06726178646087647
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 9000
+Avgerage time: 0.06043549299240112
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 10000
+Avgerage time: 0.08203298091888428
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 11000
+Avgerage time: 0.06734153509140015
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 12000
+Avgerage time: 0.05665785312652588
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 13000
+Avgerage time: 0.0660922622680664
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 14000
+Avgerage time: 0.05442901849746704
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 15000
+Avgerage time: 0.05937610149383545
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 16000
+Avgerage time: 0.05853678226470947
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 17000
+Avgerage time: 0.07209882974624633
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 18000
+Avgerage time: 0.05953601598739624
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 19000
+Avgerage time: 0.07779558658599854
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 20000
+Avgerage time: 0.07044978141784668
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 21000
+Avgerage time: 0.06441323041915893
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 22000
+Avgerage time: 0.07624627590179443
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 23000
+Avgerage time: 0.06418355703353881
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 24000
+Avgerage time: 0.06691180467605591
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 25000
+Avgerage time: 0.06738152980804443
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 26000
+Avgerage time: 0.07218878984451294
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 27000
+Avgerage time: 0.06212433099746704
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 28000
+Avgerage time: 0.0610851240158081
+satisfiable count: 100, unsatisfiable count: 0
+Probability: 0.8, MaxFips: 29000
+Avgerage time: 0.07227875471115112
+satisfiable count: 100, unsatisfiable count: 0
