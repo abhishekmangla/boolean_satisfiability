@@ -6,16 +6,17 @@ import pdb
 #Input CNF into clauses, symbols for dpll
 def getClauses_Symbols(cnf):
     clauses = []
-    symbols = set()
+    symbols = []
     split_clauses = cnf.split("),")
     for clause in split_clauses:
         clause = clause.replace("(", "").replace(")", "")
         new_clause = []
         for symbol in clause.split(","):
             new_clause.append(symbol)
-            symbols.add(int(symbol))
+            symbols.append(symbol)
 
         clauses.append(new_clause)
+    
     return clauses, symbols    
 
 #If every clause in clauses is True in model
@@ -69,13 +70,22 @@ def findUnitClause(clauses, model):
                 return remaining[0]
     return False
 
-def pickSymbol(clauses, model):
+def pickSymbol(clauses, model,symbols):
     combined = model + compliment(model)
+    
+    L = sorted(symbols,key=symbols.count,reverse=True)
+    for s in L:
+        if s[0] != "-" and s not in combined:
+            return s
+    return False
+    
+    """
     for clause in clauses:
         for symbol in clause:
             if symbol[0] != "-" and symbol not in combined:
                 return symbol
     return False
+    """
 
 def dpll_satisfiable(cnf):
     clauses,symbols = getClauses_Symbols(cnf)
@@ -86,11 +96,10 @@ def dpll_satisfiable(cnf):
 def dpll(clauses,symbols,model):
     #print("In DPLL...\n clauses: {}\n symbols: {}\n model: {}\n".format(clauses, symbols,model))
     if allTrue(clauses, model):
-        print("All True!\n")
         return model,symbols
     if someFalse(clauses,model):
-        print("Some False!\n")
-        return False
+        #print("Some False!\n")
+        return False,False
     pure = findPureSymbol(clauses, model)
     if pure:
         return dpll(clauses,symbols, model + [pure])
@@ -99,7 +108,8 @@ def dpll(clauses,symbols,model):
     if unit:
         #print("unit was found: ", unit)
         return dpll(clauses, symbols,model + [unit])
-    pick = pickSymbol(clauses, model)
+    pick = pickSymbol(clauses, model,symbols)
+    #print(pick)
     if pick:
         result = dpll(clauses, symbols, model+[pick])
         if result:
@@ -115,7 +125,7 @@ def dpll(clauses,symbols,model):
                 return False
 
 def output(model,symbols):
-    s = [abs(a) for a in symbols]
+    s = [abs(int(a)) for a in symbols]
     #low = min(s)
     high = max(s)
     out = []
@@ -152,23 +162,76 @@ if __name__ == "__main__":
     #unsatisfy
     #cnf = "(-1,2,4),(-2,3,4),(1,-3,4),(1,-2,-4),(2,-3,-4),(-1,3,-4),(1,2,3),(-1,-2,-3)"
     #pdb.set_trace()
-    files = [f for f in os.listdir('satisfy1')]
-    x_vals = range(100)
+
+    #unsatisfy
+    
+    
+    cnf = "(3,-5,6),(-9,2,1)"
+    model,symbols = dpll_satisfiable(cnf)
+    if model:
+        print("All True!")
+        print(symbols)
+        print(output(model,symbols))
+    else:
+        print("UNSATISFIABLE")
+    
+    """
+    
+    files = [f for f in os.listdir('satisfy2')]
+    x_vals = range(5)
+    #x_vals = range(len(files))
+    #range(len(files))
     y_vals = []
     sat_count = 0
-    for f in files[:100]:
+    unsat_count = 0
+    
+    for f in files[:5]:
         start_time = time.time()
-        cnf = clause.giveInput("satisfy1/" + f)
-        if dpll_satisfiable(cnf):
-            model,symbols = dpll_satisfiable(cnf)
+        cnf = clause.giveInput("satisfy2/" + f)
+        model = dpll_satisfiable(cnf)
+        print(model)
+        #print(model)
+        if model:
+            print("All True!" + f + "\n")
             # print(output(model,symbols))
-            sat_count += 1    
+            sat_count += 1
+        else:
+            print("UNSATISFIABLE" + f + "\n")
+            unsat_count += 1
         end_time = time.time()
         # print("Elapsed Time: %s seconds" % (end_time - start_time))
         y_vals.append(end_time - start_time)
     
     print("total count: " + str(len(files)))
     print("satisfiable count: " + str(sat_count))
+    print("unsatisfiable count: " + str(unsat_count))
     print("average time: "+ str(sum(y_vals)/len(y_vals)))
     plt.plot(x_vals, y_vals)
     plt.show()
+
+    """
+    
+
+    #20 variables 91 clauses: avg time = 0.08641732978820801
+    #50 variables 218 clauses: avg time = 9.446
+
+    #Regular algorithm
+    #50 variables 218 clauses for 50 files:
+        #total count: 1000
+        #satisfiable count: 50
+        #unsatisfiable count: 0
+        #average time: 4.281889734268188
+
+    #unassigned symbol modified to most frequent:
+    #50 variables 218 clauses for 50 files:
+        #total count: 1000
+        #satisfiable count: 50
+        #unsatisfiable count: 0
+        #average time: 1.6558127450942992
+
+    #least frequent
+    #50 variables 218 clauses for 5 files:
+        #total count: 1000
+        #satisfiable count: 5
+        #unsatisfiable count: 0
+        #average time: 67.41400866508484

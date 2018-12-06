@@ -134,15 +134,15 @@ if __name__ == "__main__":
     """
     
     files = [f for f in os.listdir('satisfy2')]
-    x_vals = range(100)
+    x_vals = range(10)
     #range(len(files))
     #y_vals = []
     #sat_count = 0
     #unsat_count = 0 
     rfile = open("1.resultWALK_satisfy_100files_50_219.txt","w")
     
-    ps = [round(x * 0.1,2) for x in range(5, 10)]
-    flips = [x for x in range(1000,20000,1000)]
+    ps = [round(x * 0.1,2) for x in range(5, 9)]
+    flips = [x for x in range(1000,30000,1000)]
     for p in ps:
         #print("@@@@@@@@@@@@@{}@@@@@@@@@".format(p))
         for flip in flips: 
@@ -151,7 +151,7 @@ if __name__ == "__main__":
             y_vals = []
             sat_count = 0
             unsat_count = 0 
-            for f in files[:100]:
+            for f in files[:10]:
                 start_time = time.time()
                 cnf = clause.giveInput("satisfy2/" + f)
                 if walkSAT_satisfiable(cnf,p,flip):
