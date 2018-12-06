@@ -121,7 +121,7 @@ def output(model):
 
 
 
-if __name__ == "__main__":
+def walksat_experiment_1():
     #start_time = time.time()
     #cnf = "(3,-5,6),(-9,2,1)"
     """
@@ -134,48 +134,53 @@ if __name__ == "__main__":
     """
 
     files = [f for f in os.listdir('uf20-91/')]
-    x_vals = range(100)
+    #x_vals = range(100)
+    x_vals = []
     #range(len(files))
-    #y_vals = []
+    y_vals = []
     #sat_count = 0
     #unsat_count = 0
-    rfile = open("1.resultWALK_satisfy_100files_50_219.txt","w")
+    #rfile = open("1.resultWALK_satisfy_100files_50_219.txt","w")
 
-    ps = [round(x * 0.1,2) for x in range(5, 10)]
-    flips = [x for x in range(1000,20000,1000)]
+    ps = [round(x * 0.05, 2) for x in range(0, 21)]
+    flips = 500 #[x for x in range(1000,20000,1000)]
     for p in ps:
         #print("@@@@@@@@@@@@@{}@@@@@@@@@".format(p))
-        for flip in flips:
-            print("@@@{} p @@@@@@{} flips@@@@@@@@@".format(p,flip))
-            #print("next FLIP")
-            y_vals = []
-            sat_count = 0
-            unsat_count = 0
-            for f in files[:1]:
-                start_time = time.time()
-                cnf = clause.giveInput("uf20-91/" + f)
-                if walkSAT_satisfiable(cnf,p,flip):
-                    #print("All True!" + f + "\n")
-                    sat_count += 1
-                else:
-                    #print("UNSATISFIABLE" + f + "\n")
-                    unsat_count += 1
-                end_time = time.time()
-                y_vals.append(end_time - start_time)
-    #print("Elapsed Time: %s seconds" % (end_time - start_time))
-            rfile.write("Probability: {}, MaxFips: {}\n".format(str(p), str(flip)))
-            rfile.write("Avgerage time: {}\n".format(str(sum(y_vals)/len(y_vals))))
-            rfile.write("satisfiable count: {}, unsatisfiable count: {}\n".format(str(sat_count),str(unsat_count)))
-            rfile.write("")
-    rfile.close()
+        print("@@@ Probability {}".format(p))
+        #print("next FLIP")
+        x_vals.append(p)
+        sat_count = 0
+        unsat_count = 0
+        for f in files[:5]:
+            #print(f)
+            #start_time = time.time()
+            cnf = clause.giveInput("uf20-91/" + f)
+            if walkSAT_satisfiable(cnf,p,flips):
+                #print("All True!" + f + "\n")
+                sat_count += 1
+            else:
+                #print("UNSATISFIABLE" + f + "\n")
+                unsat_count += 1
+            #end_time = time.time()
+            #y_vals.append(end_time - start_time)
+        y_vals.append(sat_count / 5)
+
+        #print("Elapsed Time: %s seconds" % (end_time - start_time))
+        #rfile.write("Probability: {}, MaxFips: {}\n".format(str(p), str(flip)))
+        #rfile.write("Avgerage time: {}\n".format(str(sum(y_vals)/len(y_vals))))
+        #rfile.write("satisfiable count: {}, unsatisfiable count: {}\n".format(str(sat_count),str(unsat_count)))
+        #rfile.write("")
+    #rfile.close()
     """
     print("total count: " + str(len(files)))
     print("satisfiable count: " + str(sat_count))
     print("unsatisfiable count: " + str(unsat_count))
     print("average time: "+ str(sum(y_vals)/len(y_vals)))
     """
-    #plt.plot(x_vals, y_vals)
-    #plt.show()
+    print(x_vals)
+    plt.bar(x_vals, y_vals, align="edge")
+    plt.show()
+
 
 
     #SATISFY
@@ -195,3 +200,4 @@ if __name__ == "__main__":
     #UNSATISFY
     #50var_219ccla 0.65, 1000 over 100 files
         # avg unsatisfy =1.4917813634872437
+walksat_experiment_1()
