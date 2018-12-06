@@ -21,7 +21,7 @@ def getClauses_Symbols(cnf):
 
         clauses.append(new_clause)
     symLength = len(symbols)
-    return clauses, symbols    
+    return clauses, symbols
 
 
 def prop_symbols(clause):
@@ -35,7 +35,7 @@ def prop_symbols(clause):
 def pl_true(clause,model):
     #print("clause:",clause)
     #print("model:",model)
-    #returns true if the propositional logical expression is true in the model 
+    #returns true if the propositional logical expression is true in the model
     #print("model:", model)
     #print("clause:",clause)
     l = []
@@ -49,19 +49,19 @@ def pl_true(clause,model):
         else:
             if model[abs(int(symbol))] is False:
                 l.append(symbol)
-        
+
         """
-            if str(abs(int(symbol))) in clause: 
+            if str(abs(int(symbol))) in clause:
                 if model[abs(int(symbol))] is False:
                     if abs(int(symbol)) not in l:
                         l.append(abs(int(symbol)))
             else:
                 if model[int(symbol)] is False:
                     l.append(int(symbol))
-        """    
+        """
     if len(l) == 0:
         return False
-    
+
     return True
 
 
@@ -77,16 +77,16 @@ def walkSAT_satisfiable(cnf,p,flip):
     #p = 0.65
     #print("clauses:", clauses)
     #print("symbols:", symbols)
-    #number of flips allowed before giving up 
+    #number of flips allowed before giving up
     #max_flips = 1000
     return walkSAT(clauses,symbols,p,flip)
 
 def walkSAT(clauses,symbols,p,max_flips):
-    
+
     # a random assignment of true/false to the symbols in clauses
     model = {s: random.choice([True,False]) for s in symbols}
 
-    
+
     for i in range(max_flips):
         #print("Loop:",i)
         satisfied, unsatisfied = [], []
@@ -113,11 +113,11 @@ def walkSAT(clauses,symbols,p,max_flips):
         sym = abs(int(sym))
         model[sym] = not model[sym]
     # If no solution is found within the flip limit, we return failure
-    return None 
+    return None
 
 def output(model):
     print("")
-    
+
 
 
 
@@ -132,28 +132,28 @@ if __name__ == "__main__":
     else:
         print("False")
     """
-    
-    files = [f for f in os.listdir('satisfy2')]
+
+    files = [f for f in os.listdir('uf20-91/')]
     x_vals = range(100)
     #range(len(files))
     #y_vals = []
     #sat_count = 0
-    #unsat_count = 0 
+    #unsat_count = 0
     rfile = open("1.resultWALK_satisfy_100files_50_219.txt","w")
-    
+
     ps = [round(x * 0.1,2) for x in range(5, 10)]
     flips = [x for x in range(1000,20000,1000)]
     for p in ps:
         #print("@@@@@@@@@@@@@{}@@@@@@@@@".format(p))
-        for flip in flips: 
+        for flip in flips:
             print("@@@{} p @@@@@@{} flips@@@@@@@@@".format(p,flip))
             #print("next FLIP")
             y_vals = []
             sat_count = 0
-            unsat_count = 0 
-            for f in files[:100]:
+            unsat_count = 0
+            for f in files[:1]:
                 start_time = time.time()
-                cnf = clause.giveInput("satisfy2/" + f)
+                cnf = clause.giveInput("uf20-91/" + f)
                 if walkSAT_satisfiable(cnf,p,flip):
                     #print("All True!" + f + "\n")
                     sat_count += 1
@@ -176,7 +176,7 @@ if __name__ == "__main__":
     """
     #plt.plot(x_vals, y_vals)
     #plt.show()
-    
+
 
     #SATISFY
     #20var_91cla avg 0.5, 10000 over 1000 files
@@ -185,10 +185,10 @@ if __name__ == "__main__":
     #50var_219cla 0.65, 10000 over 100 files
         # avg satisfy = 1.531405007839203
         # satisfy = 99, unsatisfy = 1
-    #50var_219cla 0.65, 1000 over 100 files    
+    #50var_219cla 0.65, 1000 over 100 files
         # avg satisfy = 0.9309079384803772
         # satisfy = 68, unsatisfy = 32
-    #50var_219cla 0.65, 30000 over 100 files    
+    #50var_219cla 0.65, 30000 over 100 files
         # avg satisfy = 1.6922698187828065
         # satisfy =  ,unsatisfy =
 
