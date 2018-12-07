@@ -122,28 +122,12 @@ def output(model):
 
 
 def walksat_experiment_1():
-    #start_time = time.time()
-    #cnf = "(3,-5,6),(-9,2,1)"
-    """
-    cnf = "(1,2,3),(1,2,-3),(1,-2,3),(1,-2,-3),(-1,2,3),(-1,2,-3),(-1,-2,3),(-1,-2,-3)"
-    if walkSAT_satisfiable(cnf):
-        print(walkSAT_satisfiable(cnf))
-        print("True")
-    else:
-        print("False")
-    """
 
-    files = [f for f in os.listdir('uf20-91/')]
-    #x_vals = range(100)
+    files = [f for f in os.listdir('satisfy1/')]
     x_vals = []
-    #range(len(files))
     y_vals = []
-    #sat_count = 0
-    #unsat_count = 0
-    #rfile = open("1.resultWALK_satisfy_100files_50_219.txt","w")
-
     ps = [round(x * 0.05, 2) for x in range(0, 21)]
-    flips = 500 #[x for x in range(1000,20000,1000)]
+    flips = 500 
     for p in ps:
         #print("@@@@@@@@@@@@@{}@@@@@@@@@".format(p))
         print("@@@ Probability {}".format(p))
@@ -154,7 +138,7 @@ def walksat_experiment_1():
         for f in files[:5]:
             #print(f)
             #start_time = time.time()
-            cnf = clause.giveInput("uf20-91/" + f)
+            cnf = clause.giveInput("satisfy1/" + f)
             if walkSAT_satisfiable(cnf,p,flips):
                 #print("All True!" + f + "\n")
                 sat_count += 1
@@ -163,25 +147,19 @@ def walksat_experiment_1():
                 unsat_count += 1
             #end_time = time.time()
             #y_vals.append(end_time - start_time)
-        y_vals.append(sat_count / 5)
-
-        #print("Elapsed Time: %s seconds" % (end_time - start_time))
-        #rfile.write("Probability: {}, MaxFips: {}\n".format(str(p), str(flip)))
-        #rfile.write("Avgerage time: {}\n".format(str(sum(y_vals)/len(y_vals))))
-        #rfile.write("satisfiable count: {}, unsatisfiable count: {}\n".format(str(sat_count),str(unsat_count)))
-        #rfile.write("")
-    #rfile.close()
-    """
-    print("total count: " + str(len(files)))
-    print("satisfiable count: " + str(sat_count))
-    print("unsatisfiable count: " + str(unsat_count))
-    print("average time: "+ str(sum(y_vals)/len(y_vals)))
-    """
+        y_vals.append((sat_count / 5) * 100)
     print(x_vals)
-    plt.bar(x_vals, y_vals, align="edge")
+    x_pos = np.arange(len(x_vals))
+    plt.bar(x_pos, y_vals, align="edge",alpha=0.5,width=0.8)
+    
+    
+    #plt.tick_params(axis='x', which='major', pad=20)
+    plt.xticks(x_pos, x_vals)
+    plt.subplots_adjust(bottom=0.15)
     plt.show()
 
-
+def walksat_experiment_2():
+    print("")
 
     #SATISFY
     #20var_91cla avg 0.5, 10000 over 1000 files
