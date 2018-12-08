@@ -126,8 +126,8 @@ def walksat_experiment_1():
     files = [f for f in os.listdir('satisfy1/')]
     x_vals = []
     y_vals = []
-    ps = [round(x * 0.05, 2) for x in range(0, 21)]
-    flips = 500 
+    ps = [round(x * 0.1, 2) for x in range(1, 11)]
+    flips = 20000
     for p in ps:
         #print("@@@@@@@@@@@@@{}@@@@@@@@@".format(p))
         print("@@@ Probability {}".format(p))
@@ -135,8 +135,8 @@ def walksat_experiment_1():
         x_vals.append(p)
         sat_count = 0
         unsat_count = 0
-        for f in files[:5]:
-            #print(f)
+        for f in files:
+            print(f)
             #start_time = time.time()
             cnf = clause.giveInput("satisfy1/" + f)
             if walkSAT_satisfiable(cnf,p,flips):
@@ -147,20 +147,40 @@ def walksat_experiment_1():
                 unsat_count += 1
             #end_time = time.time()
             #y_vals.append(end_time - start_time)
-        y_vals.append((sat_count / 5) * 100)
+        y_vals.append( str((sat_count / len(files) ) * 100) + "%")
     print(x_vals)
     x_pos = np.arange(len(x_vals))
-    plt.bar(x_pos, y_vals, align="edge",alpha=0.5,width=0.8)
-    
-    
-    #plt.tick_params(axis='x', which='major', pad=20)
+    plt.figure(figsize=(10,8))
+    plt.ylabel('Successfully Solved %')
+    plt.xlabel("Probability P")
+    plt.title('Value of Probability P vs Percentage of Problems Solved')
+    plt.bar(x_pos, y_vals, align="center",alpha=0.5)
     plt.xticks(x_pos, x_vals)
-    plt.subplots_adjust(bottom=0.15)
     plt.show()
 
 def walksat_experiment_2():
-    print("")
+    #F = ['175var','200var','225var','250var']
+    files = [f for f in os.listdir('175var/')]
 
+    output = []
+    for flip in range(1000,21000,1000):
+        print("flip:", flip)
+        sat_count = 0
+        unsat_count = 0
+        for f in files[:20]:
+            print(f)
+            cnf = clause.giveInput("175var/" + f)
+            if walkSAT_satisfiable(cnf,0.7,flip):
+                #print("All True!" + f + "\n")
+                sat_count += 1
+            else:
+                #print("UNSATISFIABLE" + f + "\n")
+                unsat_count += 1
+        output.append("{}:{}".format(flip,str(sat_count/20) + "%"))
+    print(output)
+
+if __name__ == "__main__":
+    walksat_experiment_2()
     #SATISFY
     #20var_91cla avg 0.5, 10000 over 1000 files
         # avg satisfy: 0.10994927787780762
@@ -178,4 +198,4 @@ def walksat_experiment_2():
     #UNSATISFY
     #50var_219ccla 0.65, 1000 over 100 files
         # avg unsatisfy =1.4917813634872437
-walksat_experiment_1()
+#walksat_experiment_1()
