@@ -5,6 +5,8 @@ Our programs are implemented in python 3 and we used all standard python librari
 The "assets" directory has graphs and images that we used in our final report.
 
 ## our final algorithm: walkSAT modified
-```python walksat_final.py```
-How does it take input?
-It will output an answer if it finds one in (1,0,0,1) format where 1 means True, 0 means False. Index + 1 corresponds to variable number.
+To run:
+```python WalkSAT_SATSolver.py```
+
+The program will prompt for an input file containing a set of clauses in CNF.
+It will output an answer if it finds one in (1,0,0,1) format where 1 means True, 0 means False. If no solution is found, UNSATISFIABLE will be printed. The index position + 1 corresponds to variable number.
