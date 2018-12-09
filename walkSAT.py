@@ -3,7 +3,7 @@ import clause
 import os
 import matplotlib.pyplot as plt
 import numpy as np
-
+from dpll import *
 import random
 
 def getClauses_Symbols(cnf):
@@ -160,24 +160,47 @@ def walksat_experiment_1():
 
 def walksat_experiment_2():
     #F = ['175var','200var','225var','250var']
-    files = [f for f in os.listdir('175var/')]
-
+    files = [f for f in os.listdir('uf20-91/')]
     output = []
-    for flip in range(1000,21000,1000):
-        print("flip:", flip)
-        sat_count = 0
-        unsat_count = 0
-        for f in files[:20]:
-            print(f)
-            cnf = clause.giveInput("175var/" + f)
-            if walkSAT_satisfiable(cnf,0.7,flip):
-                #print("All True!" + f + "\n")
-                sat_count += 1
-            else:
-                #print("UNSATISFIABLE" + f + "\n")
-                unsat_count += 1
-        output.append("{}:{}".format(flip,str(sat_count/20) + "%"))
-    print(output)
+    num_vars = 20
+    flip = int(np.log(num_vars**4) * num_vars * 15)
+    sat_count = 0
+    sat2_count = 0
+    unsat_count = 0
+    unsat2_count = 0
+    wsat_times = []
+    for f in files:
+        #print(f)
+        cnf = clause.giveInput('uf20-91/' + f)
+        s = time.time()
+        model = walkSAT_satisfiable(cnf,0.7,flip)
+        e = time.time()
+        wsat_times.append((e - s) if model else 0)
+        if model:
+            print("All True!" + f + "\n")
+            sat_count += 1
+        else:
+            print("UNSATISFIABLE" + f + "\n")
+            unsat_count += 1
+        new_start_time = time.time()
+        model, symbols = dpll_satisfiable(cnf, new_start_time, (e-s))
+        new_end_time = time.time()
+
+        if model:
+            print("Dpll All True!" + f + "\n")
+            sat2_count += 1
+        else:
+            print("Dpll UNSATISFIABLE" + f + "\n")
+            unsat2_count += 1
+
+    plt.plot(range(len(files)), wsat_times)
+    plt.xlabel("test case number")
+    plt.ylabel("time to find solution in seconds")
+    plt.title("WalkSAT modified with max_flips based on model")
+    plt.show()
+    print(wsat_times)
+    print(sat2_count)
+    print(sat_count)
 
 if __name__ == "__main__":
     walksat_experiment_2()

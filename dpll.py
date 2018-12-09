@@ -8,14 +8,14 @@ import re
 #Input CNF into clauses, symbols for dpll
 def getClauses_Symbols(cnf):
     clauses = []
-    symbols = set()
+    symbols = []
     split_clauses = cnf.split("),")
     for clause in split_clauses:
         clause = clause.replace("(", "").replace(")", "")
         new_clause = []
         for symbol in clause.split(","):
             new_clause.append(symbol)
-            symbols.add(int(symbol))
+            symbols.append(symbol)
 
         clauses.append(new_clause)
     return clauses, symbols
@@ -71,6 +71,15 @@ def findUnitClause(clauses, model):
                 return remaining[0]
     return False
 
+def pickSymbol_most_freq(clauses, model,symbols):
+    combined = model + compliment(model)
+
+    L = sorted(symbols,key=symbols.count,reverse=True)
+    for s in L:
+        if s[0] != "-" and s not in combined:
+            return s
+    return False
+
 def pickSymbol(clauses, model):
     combined = model + compliment(model)
     for clause in clauses:
@@ -89,6 +98,51 @@ def dpll_satisfiable(cnf, start_time, timeout=1):
         print("HERE")
         return None, None
 
+def dpll_satisfiable2(cnf, start_time, timeout=1):
+    clauses,symbols = getClauses_Symbols(cnf)
+    #print("clauses: ",clauses)
+    #print("symbols: ",symbols)
+    try:
+        return dpll2(clauses,symbols,[],start_time,timeout)
+    except ValueError:
+        print("HERE")
+        return None, None
+
+def dpll2(clauses, symbols, model, start_time, timeout):
+    #print("In DPLL...\n clauses: {}\n symbols: {}\n model: {}\n".format(clauses, symbols,model))
+    # print(time.time() - start_time)
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    if elapsed_time > timeout:
+        raise ValueError("timeout")
+    if allTrue(clauses, model):
+        return model,symbols
+    if someFalse(clauses,model):
+        #print("Some False!\n")
+        return False,False
+    pure = findPureSymbol(clauses, model)
+    if pure:
+        return dpll2(clauses,symbols, model + [pure], start_time, timeout)
+
+    unit = findUnitClause(clauses, model)
+    if unit:
+        #print("unit was found: ", unit)
+        return dpll2(clauses, symbols,model + [unit], start_time, timeout)
+    pick = pickSymbol_most_freq(clauses, model, symbols)
+    if pick:
+        result = dpll2(clauses, symbols, model+[pick], start_time, timeout)
+        if result:
+            return result
+        else:
+            if pick[0] == "-":
+                result = dpll2(clauses, symbols, model + [pick], start_time, timeout)
+            else:
+                result = dpll2(clauses, symbols, model + ["-"+pick], start_time, timeout)
+            if result:
+                return result
+            else:
+                return False
+
 def dpll(clauses, symbols, model, start_time, timeout):
     #print("In DPLL...\n clauses: {}\n symbols: {}\n model: {}\n".format(clauses, symbols,model))
     # print(time.time() - start_time)
@@ -97,11 +151,10 @@ def dpll(clauses, symbols, model, start_time, timeout):
     if elapsed_time > timeout:
         raise ValueError("timeout")
     if allTrue(clauses, model):
-        print("All True!\n")
         return model,symbols
     if someFalse(clauses,model):
-        print("Some False!\n")
-        return False
+        #print("Some False!\n")
+        return False,False
     pure = findPureSymbol(clauses, model)
     if pure:
         return dpll(clauses,symbols, model + [pure], start_time, timeout)
@@ -126,7 +179,7 @@ def dpll(clauses, symbols, model, start_time, timeout):
                 return False
 
 def output(model,symbols):
-    s = [abs(a) for a in symbols]
+    s = [abs(int(a)) for a in symbols]
     #low = min(s)
     high = max(s)
     out = []
@@ -209,12 +262,58 @@ def experiment_two():
     plt.title('100 variables with different number of clauses vs time to solve')
     plt.show()
 
+
+"""
+In This experiment, we compare performance of picking most frequent
+symbols versus picking symbols randomly as done in vanilla dpll
+Pick the 25 vars benchmark and run on all 1000 testcases.
+We compare time performance between both vanilla and this modified DPLL.
+"""
+def experiment_three():
+    y_vals_vanilla = []
+    y_vals_optimized = []
+    files_in_subdir = [f for f in os.listdir("uf20-91/")]
+    sat_count = 0
+    times = []
+    for f in files_in_subdir[:]:
+        start_time = time.time()
+        cnf = clause.giveInput("uf20-91/" + f)
+        model, symbols = dpll_satisfiable(cnf, start_time,float("inf"))
+        end_time = time.time()
+        print(model, symbols)
+        if model and symbols:
+            sat_count += 1
+            y_vals_vanilla.append(end_time-start_time)
+
+        # start_time = time.time()
+        # cnf = clause.giveInput("uf20-91/" + f)
+        # model, symbols = dpll_satisfiable2(cnf, start_time,float("inf"))
+        # end_time = time.time()
+        print(model, symbols)
+        # if model and symbols:
+        #     y_vals_optimized.append(end_time-start_time)
+
+    print(sat_count, len(files_in_subdir))
+    x_vals = list(range(len(y_vals_vanilla)))
+    print(len(x_vals))
+    print(len(y_vals_vanilla))
+    print(len(y_vals_optimized))
+    plt.plot(x_vals, y_vals_vanilla, 'r--')
+
+    # plt.plot(x_vals, y_vals_vanilla, 'r--', x_vals, y_vals_optimized, 'g--')
+    plt.ylabel('Time to solve (seconds)')
+    plt.xlabel("test case number")
+    plt.title('25 variables vs time to solve')
+    plt.show()
+
+
 if __name__ == "__main__":
     """
     (3,-5,6),(-9,2,1) -> (1,0,1,0,0,0,0,0,0)
     """
     # experiment_one()
-    experiment_two()
+    # experiment_two()
+    experiment_three()
     #satisfy
     #cnf = "(3,-5,6),(-9,2,1)"
 
