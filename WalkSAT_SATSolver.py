@@ -5,9 +5,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 #from dpll import *
 import random
+import sys
 
 
-
+def parser(filename):
+    with open(filename, 'r') as file:
+        content = file.readlines()
+        cnf = ""
+        for line in content:
+            cnf = cnf + line
+    return cnf
 
 def getClauses_Symbols(cnf):
     global symLength
@@ -200,6 +207,30 @@ def displayOutput(model,symbols):
     return out
 
 if __name__ == "__main__":
+
+
+    #cnf = clause.giveInput('sample_50var_testcase.txt')
+    #print(cnf)
+    if len(sys.argv) < 2:
+        print("Needs a test case file to run")
+    else:
+        for test in sys.argv[1:]:
+            print("Computing {}\n".format(test))
+            cnf = parser(test)
+            clauses, symbols = getClauses_Symbols(cnf)
+            num_vars = symLength
+            flip_count = int(np.log(num_vars**4) * num_vars * 15)
+            model = walkSAT_satisfiable(cnf,0.7,flip_count)
+            if model:
+                print("{} is Satisiable!".format(test))
+                print(displayOutput(model,symbols))
+            else:
+                print("{} is Unsatisable...".format(test))
+    
+            
+
+
+    """
     cnf = "(3,-5,6),(-9,2,1)"
     clauses, symbols = getClauses_Symbols(cnf)
     model = walkSAT_satisfiable(cnf,0.7,10000)
@@ -209,6 +240,10 @@ if __name__ == "__main__":
         print(displayOutput(model,symbols))
     else:
         print("UNSATISFIABLE " + "\n")
+
+    """
+
+
     """
     files = [f for f in os.listdir('satisfy1')]
 
