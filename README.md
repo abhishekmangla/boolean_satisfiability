@@ -1,4 +1,5 @@
 # boolean_satisfiability
+Team members: Abhishek Mangla, Frank Oh, Daniel Yao
 
 Our programs are implemented in python 3 and we used all standard python libraries. We used the textbook (Artificial Intelligence: A Modern Approach)'s online code base as a launchpad for the basic implementations of DPLL and walkSAT. We added a lot of our code for running experiments, modifying the algorithms, adding timeouts, etc. The source code for our experiments which we used to generate the graphs in final report are in the "experiments" directory.
 
